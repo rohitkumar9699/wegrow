@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Careers – Apply Now</title>
+  <meta name="description" content="Career application form for internships and full‑time roles. Upload resume, provide details, and submit securely.">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7540625728935608"
+     crossorigin="anonymous"></script>
+  <style>
+    :root{
+      --bg:#0b1020; /* dark gradient base */
+      --bg2:#111833;
+      --card:#0f172a;
+      --muted:#94a3b8;
+      --text:#e5e7eb;
+      --brand:#6ee7b7; /* teal */
+      --brand-2:#60a5fa; /* blue */
+      --danger:#ef4444;
+      --ok:#22c55e;
+      --warn:#f59e0b;
+      --shadow:0 20px 50px rgba(0,0,0,.35);
+      --radius:18px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f1f5f9; --bg2:#e2e8f0; --card:#ffffff; --text:#0f172a; --muted:#334155; --shadow:0 12px 34px rgba(2,6,23,.12);
+      }
+    }
+    html,body{height:100%;}
+    body{
+      margin:0; font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial; color:var(--text);
+      background: radial-gradient(1200px 800px at 10% -10%, var(--bg2), transparent),
+                  radial-gradient(1200px 900px at 110% 10%, var(--bg2), transparent),
+                  linear-gradient(160deg, var(--bg), #060a16 60%);
+      display:flex; align-items:center; justify-content:center; padding:32px;
+    }
+    .wrap{ width:100%; max-width:980px; }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)) , var(--card);
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow); border-radius:var(--radius); overflow:hidden; position:relative;
+    }
+    .header{ padding:28px 28px 10px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;}
+    .logo{ width:44px; height:44px; border-radius:12px; background:linear-gradient(135deg, var(--brand), var(--brand-2)); display:grid; place-items:center; color:#0a0a0a; font-weight:800; box-shadow:0 8px 18px rgba(96,165,250,.35)}
+    h1{ font-size: clamp(22px, 2.6vw, 30px); margin:0; letter-spacing:.2px;}
+    .sub{ color:var(--muted); margin:2px 0 0; font-size:14px;}
+
+    /* Progress */
+    .progress{ position:relative; height:10px; background:rgba(148,163,184,.25); margin:12px 28px 0; border-radius:999px; overflow:hidden;}
+    .bar{ position:absolute; inset:0 100% 0 0; background:linear-gradient(90deg,var(--brand),var(--brand-2)); transition:inset .35s ease;}
+    .steps{ display:flex; gap:10px; padding:10px 28px 0; flex-wrap:wrap;}
+    .chip{ font-size:12px; color:var(--muted); padding:6px 10px; border:1px dashed rgba(148,163,184,.35); border-radius:999px;}
+    .chip.active{ color:var(--text); border-style:solid; border-color:transparent; background:rgba(96,165,250,.18)}
+
+    form{ padding:22px 28px 28px; display:grid; gap:18px;}
+    fieldset{ border:0; padding:0; margin:0; display:grid; gap:14px;}
+    .grid{ display:grid; gap:14px; grid-template-columns:repeat(12,1fr); }
+    .col-6{ grid-column: span 6; }
+    .col-4{ grid-column: span 4; }
+    .col-8{ grid-column: span 8; }
+    .col-12{ grid-column: 1/-1; }
+    @media (max-width:820px){ .col-6,.col-4,.col-8{ grid-column: 1/-1; } }
+
+    label{ display:block; font-weight:600; font-size:14px; margin:2px 0 6px;}
+    .req{ color:var(--brand-2); margin-left:6px; font-weight:700;}
+    .hint{ font-size:12px; color:var(--muted); margin-top:6px;}
+
+    .input, select, textarea{ width:100%; box-sizing:border-box; color:var(--text); background:rgba(255,255,255,.04); border:1px solid rgba(148,163,184,.35); border-radius:12px; padding:12px 14px; outline:none; transition:border-color .2s, box-shadow .2s;}
+    .input::placeholder{ color:rgba(148,163,184,.7) }
+    .input:focus, select:focus, textarea:focus{ border-color:var(--brand-2); box-shadow:0 0 0 4px rgba(96,165,250,.2)}
+
+    .row{ display:flex; gap:12px; align-items:center; flex-wrap:wrap;}
+    .radio{ display:flex; gap:10px; align-items:center; background:rgba(255,255,255,.04); border:1px solid rgba(148,163,184,.35); padding:10px 12px; border-radius:12px; }
+    .radio input{ width:16px; height:16px; accent-color:var(--brand-2);}
+
+    .drop{ border:2px dashed rgba(148,163,184,.45); background:rgba(255,255,255,.03); border-radius:14px; padding:16px; text-align:center;}
+    .drop.drag{ border-color:var(--brand-2); background:rgba(96,165,250,.08)}
+    .pill{ display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.06); border:1px solid rgba(148,163,184,.35); padding:8px 10px; border-radius:999px; font-size:12px;}
+
+    .actions{ display:flex; gap:12px; justify-content:flex-end; padding:0 28px 26px; }
+    .btn{ border:0; border-radius:12px; padding:12px 16px; font-weight:700; cursor:pointer; transition:transform .05s ease, filter .2s;}
+    .btn:active{ transform:translateY(1px)}
+    .btn.primary{ background:linear-gradient(90deg,var(--brand),var(--brand-2)); color:#0b1020; }
+    .btn.secondary{ background:rgba(148,163,184,.15); color:var(--text); border:1px solid rgba(148,163,184,.35)}
+
+    .error{ color:var(--danger); font-size:12px; margin-top:6px; display:none }
+    .show{ display:block }
+
+    .toast{ position:fixed; right:22px; bottom:20px; background:rgba(15,23,42,.95); color:#fff; padding:14px 16px; border-radius:12px; border:1px solid rgba(148,163,184,.35); box-shadow:var(--shadow); display:none; }
+
+    /* Modal preview */
+    .modal{ position:fixed; inset:0; background:rgba(2,6,23,.6); display:none; align-items:center; justify-content:center; padding:24px;}
+    .modal .inner{ background:var(--card); border:1px solid rgba(148,163,184,.3); border-radius:16px; max-width:760px; width:100%; max-height:85vh; overflow:auto; padding:18px;}
+    .modal h3{ margin:8px 0 14px; }
+    .kv{ display:grid; grid-template-columns: 180px 1fr; gap:12px; font-size:14px; }
+    .kv div{ padding:6px 10px; background:rgba(255,255,255,.03); border:1px solid rgba(148,163,184,.2); border-radius:10px;}
+
+    .footer{ padding:0 28px 18px; color:var(--muted); font-size:12px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" role="form" aria-labelledby="title">
+      <div class="header">
+        <div class="logo" aria-hidden="true">FM</div>
+        <div>
+          <h1 id="title">Apply to WeGrow – Careers</h1>
+          <p class="sub">One application for Internship or Full‑time. Your data is private and encrypted in transit.</p>
+        </div>
+      </div>
+
+      <div class="progress" aria-hidden="true"><div class="bar" id="bar"></div></div>
+      <div class="steps" id="steps"></div>
+
+      <form id="appForm" novalidate>
+        <!-- STEP 1: Position & Eligibility -->
+        <section class="step" data-title="Role">
+          <fieldset class="grid">
+            <div class="col-6">
+              <label>Position Type<span class="req">*</span></label>
+              <select name="positionType" id="positionType" class="input" required>
+                <option value="">Select…</option>
+                <option value="internship">Internship</option>
+                <option value="fulltime">Full‑time</option>
+              </select>
+              <div class="hint">Choosing <b>Full‑time</b> will require work experience details.</div>
+              <div class="error" data-err-for="positionType">Please select a position type.</div>
+            </div>
+            <div class="col-6">
+              <label>Preferred Location<span class="req">*</span></label>
+              <input class="input" name="preferredLocation" id="preferredLocation" placeholder="e.g., Bengaluru, Remote" required>
+              <div class="hint">Type a city/state or "Remote".</div>
+              <div class="error" data-err-for="preferredLocation">Location is required.</div>
+            </div>
+            <div class="col-6">
+              <label>Earliest Start Date<span class="req">*</span></label>
+              <input type="date" class="input" name="startDate" id="startDate" required>
+              <div class="error" data-err-for="startDate">Provide a valid start date.</div>
+            </div>
+            <div class="col-6">
+              <label>Open to Remote?</label>
+              <div class="row">
+                <label class="radio"><input type="radio" name="remote" value="yes"> Yes</label>
+                <label class="radio"><input type="radio" name="remote" value="hybrid"> Hybrid</label>
+                <label class="radio"><input type="radio" name="remote" value="no"> No</label>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- STEP 2: Personal Details -->
+        <section class="step" data-title="Personal">
+          <fieldset class="grid">
+            <div class="col-6">
+              <label>Full Name<span class="req">*</span></label>
+              <input class="input" name="fullName" id="fullName" placeholder="Your name" autocomplete="name" required>
+              <div class="error" data-err-for="fullName">Full name is required.</div>
+            </div>
+            <div class="col-6">
+              <label>Email<span class="req">*</span></label>
+              <input type="email" class="input" name="email" id="email" placeholder="you@example.com" autocomplete="email" required>
+              <div class="error" data-err-for="email">Enter a valid email address.</div>
+            </div>
+            <div class="col-6">
+              <label>Phone<span class="req">*</span></label>
+              <input type="tel" class="input" name="phone" id="phone" placeholder="10-digit mobile" pattern="^[0-9]{10}$" autocomplete="tel" required>
+              <div class="hint">Digits only, no country code.</div>
+              <div class="error" data-err-for="phone">Enter a 10‑digit phone number.</div>
+            </div>
+            <div class="col-6">
+              <label>Gender<span class="req">*</span></label>
+              <select name="gender" id="gender" class="input" required>
+                <option value="">Select…</option>
+                <option>Female</option>
+                <option>Male</option>
+                <option>Non-binary</option>
+                <option>Prefer not to say</option>
+              </select>
+              <div class="error" data-err-for="gender">Please select an option.</div>
+            </div>
+            <div class="col-6">
+              <label>Date of Birth<span class="req">*</span></label>
+              <input type="date" class="input" name="dob" id="dob" required>
+              <div class="hint">Must be at least 16 years old.</div>
+              <div class="error" data-err-for="dob">Provide a valid DOB (16+).</div>
+            </div>
+            <div class="col-6">
+              <label>Current Location<span class="req">*</span></label>
+              <input class="input" name="location" id="location" placeholder="City, State, Country" required>
+              <div class="error" data-err-for="location">Current location is required.</div>
+            </div>
+            <div class="col-12">
+              <label>Portfolio / LinkedIn / GitHub</label>
+              <input type="url" class="input" name="links" id="links" placeholder="Paste any relevant URLs (comma separated)">
+              <div class="hint">Example: https://linkedin.com/in/… , https://github.com/…</div>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- STEP 3: Education -->
+        <section class="step" data-title="Education">
+          <fieldset class="grid">
+            <div class="col-8">
+              <label>Highest Qualification<span class="req">*</span></label>
+              <input class="input" name="qualification" id="qualification" placeholder="B.Tech CSE, MBA, etc." required>
+              <div class="error" data-err-for="qualification">Please enter your qualification.</div>
+            </div>
+            <div class="col-4">
+              <label>Graduation Year<span class="req">*</span></label>
+              <input type="number" class="input" name="gradYear" id="gradYear" min="2000" max="2100" required>
+              <div class="error" data-err-for="gradYear">Enter a valid year.</div>
+            </div>
+            <div class="col-12">
+              <label>College / University<span class="req">*</span></label>
+              <input class="input" name="college" id="college" placeholder="Institute name" required>
+              <div class="error" data-err-for="college">College/University is required.</div>
+            </div>
+            <div class="col-6">
+              <label>CGPA / Percentage</label>
+              <input class="input" name="score" id="score" placeholder="e.g., 8.2 CGPA or 78%">
+            </div>
+            <div class="col-6 internship-only">
+              <label>Current Semester (Internship)</label>
+              <input type="number" class="input" name="semester" id="semester" min="1" max="12" placeholder="e.g., 6">
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- STEP 4: Experience (conditional) -->
+        <section class="step" data-title="Experience" id="expStep">
+          <fieldset class="grid">
+            <div class="col-4">
+              <label>Years of Experience<span class="req">*</span></label>
+              <input type="number" step="0.5" min="0" class="input" name="expYears" id="expYears">
+              <div class="error" data-err-for="expYears">Please enter years of experience.</div>
+            </div>
+            <div class="col-4">
+              <label>Last Company<span class="req">*</span></label>
+              <input class="input" name="lastCompany" id="lastCompany">
+              <div class="error" data-err-for="lastCompany">Last company is required.</div>
+            </div>
+            <div class="col-4">
+              <label>Last Role<span class="req">*</span></label>
+              <input class="input" name="lastRole" id="lastRole">
+              <div class="error" data-err-for="lastRole">Last role is required.</div>
+            </div>
+            <div class="col-6">
+              <label>Current CTC (₹/year)<span class="req">*</span></label>
+              <input type="number" class="input" name="currentCTC" id="currentCTC" min="0">
+              <div class="error" data-err-for="currentCTC">Please provide current CTC (or 0).</div>
+            </div>
+            <div class="col-6">
+              <label>Expected CTC (₹/year)<span class="req">*</span></label>
+              <input type="number" class="input" name="expectedCTC" id="expectedCTC" min="0">
+              <div class="error" data-err-for="expectedCTC">Please provide expected CTC.</div>
+            </div>
+            <div class="col-12">
+              <label>Notice Period<span class="req">*</span></label>
+              <select class="input" name="notice" id="notice">
+                <option value="">Select…</option>
+                <option>Immediate</option>
+                <option>15 days</option>
+                <option>30 days</option>
+                <option>60 days</option>
+                <option>90 days</option>
+              </select>
+              <div class="error" data-err-for="notice">Please select notice period.</div>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- STEP 5: Documents & Additional -->
+        <section class="step" data-title="Documents">
+          <fieldset class="grid">
+            <div class="col-12">
+              <label>Resume (PDF/DOC up to 5MB)<span class="req">*</span></label>
+              <div class="drop" id="drop">
+                <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" style="display:none" required>
+                <p>Drag & drop your resume here or <button class="btn secondary" type="button" id="pick">Browse</button></p>
+                <div id="fileInfo" class="hint"></div>
+                <div class="error" data-err-for="resume">Resume is required (PDF/DOC up to 5MB).</div>
+              </div>
+            </div>
+            <div class="col-12">
+              <label>Cover Letter</label>
+              <textarea class="input" name="cover" id="cover" rows="5" maxlength="1500" placeholder="Tell us why you're a great fit…"></textarea>
+              <div class="hint"><span id="coverCount">0</span>/1500 characters</div>
+            </div>
+            <div class="col-12">
+              <label>Anything else we should know?</label>
+              <textarea class="input" name="notes" id="notes" rows="4" maxlength="800" placeholder="Certifications, awards, constraints, etc."></textarea>
+              <div class="hint"><span id="notesCount">0</span>/800 characters</div>
+            </div>
+            <div class="col-12">
+              <label class="row" style="gap:10px">
+                <input type="checkbox" id="consent" required>
+                <span>I agree to the <a href="#" style="color:var(--brand-2)">privacy policy</a> and consent to processing my data.</span>
+              </label>
+              <div class="error" data-err-for="consent">You must accept to continue.</div>
+            </div>
+          </fieldset>
+        </section>
+      </form>
+
+      <div class="actions">
+        <button class="btn secondary" id="prev" type="button" aria-label="Previous step">Back</button>
+        <button class="btn secondary" id="preview" type="button" aria-label="Preview application">Preview</button>
+        <button class="btn primary" id="next" type="button" aria-label="Next step">Next</button>
+        <button class="btn primary" id="submit" type="button" style="display:none" aria-label="Submit application">Submit</button>
+      </div>
+
+      <div class="footer">Tip: You can press <b>Enter</b> to go next when a field is valid. All fields marked with <span class="req">*</span> are mandatory.
+      </div>
+
+    </div>
+    <!-- Rohit Kumar ADDs -->
+    <div> 
+        <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7540625728935608"
+         data-ad-slot="1234567890"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    <!-- Ends here ADD  -->
+  </div>
+
+  <!-- Preview modal -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="pvTitle">
+    <div class="inner">
+      <h3 id="pvTitle">Application Preview</h3>
+      <div id="pv" class="kv"></div>
+      <div class="actions" style="justify-content:flex-end; padding:14px 0 0">
+        <button class="btn secondary" type="button" id="closePreview">Close</button>
+        <button class="btn primary" type="button" id="confirmSubmit">Confirm & Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Submitted! We’ll get back to you soon.</div>
+
+  <script>
+    // --- Helpers
+    const qs = (s, el=document) => el.querySelector(s);
+    const qsa = (s, el=document) => [...el.querySelectorAll(s)];
+
+    const form = qs('#appForm');
+    const stepsEls = qsa('.step');
+    const bar = qs('#bar');
+    const stepsChips = qs('#steps');
+    const nextBtn = qs('#next');
+    const prevBtn = qs('#prev');
+    const submitBtn = qs('#submit');
+    const previewBtn = qs('#preview');
+
+    let step = 0;
+
+    // Build step chips
+    stepsEls.forEach((s,i)=>{
+      const chip = document.createElement('span');
+      chip.className = 'chip' + (i===0?' active':'');
+      chip.textContent = (i+1)+'. '+s.dataset.title;
+      stepsChips.appendChild(chip);
+    });
+
+    const updateUI = ()=>{
+      stepsEls.forEach((s,i)=> s.style.display = i===step ? 'block':'none');
+      qsa('.chip', stepsChips).forEach((c,i)=> c.classList.toggle('active', i===step));
+      const pct = ((step)/(stepsEls.length-1))*100;
+      bar.style.inset = `0 ${100-pct}% 0 0`;
+      prevBtn.disabled = step===0;
+      nextBtn.style.display = step < stepsEls.length-1 ? 'inline-flex':'none';
+      submitBtn.style.display = step === stepsEls.length-1 ? 'inline-flex':'none';
+    };
+
+    // Conditional logic: internship vs full-time
+    const positionSel = qs('#positionType');
+    const expStep = qs('#expStep');
+    function applyPositionRules(){
+      const isFT = positionSel.value === 'fulltime';
+      expStep.style.display = isFT ? 'block' : 'none';
+      // Toggle requireds inside experience step
+      qsa('#expStep [id]').forEach(el=>{
+        if(['expYears','lastCompany','lastRole','currentCTC','expectedCTC','notice'].includes(el.id)){
+          el.required = isFT;
+        }
+      });
+      // Internship-only fields
+      qsa('.internship-only input').forEach(el=>{
+        el.required = !isFT; // semester required for internship
+      });
+    }
+    positionSel.addEventListener('change', applyPositionRules);
+
+    // DOB min age 16
+    const dob = qs('#dob');
+    const setDobMax = ()=>{
+      const today = new Date();
+      const max = new Date(today.getFullYear()-16, today.getMonth(), today.getDate());
+      dob.max = max.toISOString().slice(0,10);
+    };
+    setDobMax();
+
+    // Start date min today
+    const sd = qs('#startDate');
+    sd.min = new Date().toISOString().slice(0,10);
+
+    // Drag & drop resume
+    const drop = qs('#drop');
+    const pick = qs('#pick');
+    const resume = qs('#resume');
+    const fileInfo = qs('#fileInfo');
+    const MAX_MB = 5;
+
+    const describeFile = (f)=> `${f.name} – ${(f.size/1024/1024).toFixed(2)} MB`;
+
+    const validateResume = (file)=>{
+      if(!file) return false;
+      const okType = /(pdf|msword|officedocument)/i.test(file.type) || /\.(pdf|docx?)$/i.test(file.name);
+      const okSize = file.size <= MAX_MB*1024*1024;
+      fileInfo.textContent = okType && okSize ? describeFile(file) : '';
+      showError('resume', !(okType && okSize));
+      return okType && okSize;
+    };
+
+    pick.addEventListener('click', ()=> resume.click());
+    resume.addEventListener('change', ()=> validateResume(resume.files[0]));
+
+    ;['dragenter','dragover'].forEach(e=> drop.addEventListener(e, ev=>{ ev.preventDefault(); drop.classList.add('drag'); }));
+    ;['dragleave','drop'].forEach(e=> drop.addEventListener(e, ev=>{ ev.preventDefault(); drop.classList.remove('drag'); }));
+    drop.addEventListener('drop', ev=>{
+      const file = ev.dataTransfer.files[0];
+      if(file){ resume.files = ev.dataTransfer.files; validateResume(file); }
+    });
+
+    // Character counters
+    const bindCount = (id, counterId)=>{
+      const el = qs('#'+id), c = qs('#'+counterId);
+      const update = ()=> c.textContent = el.value.length;
+      el.addEventListener('input', update); update();
+    };
+    bindCount('cover','coverCount');
+    bindCount('notes','notesCount');
+
+    // Validation
+    function showError(name, show){
+      const err = qs(`.error[data-err-for="${name}"]`);
+      if(err) err.classList.toggle('show', !!show);
+    }
+
+    function validateStep(i){
+      const container = stepsEls[i];
+      let ok = true;
+      qsa('input,select,textarea', container).forEach(el=>{
+        // Skip hidden experience step when not FT
+        if(el.closest('#expStep') && expStep.style.display==='none') return;
+        if(el.type==='file'){
+          if(el.required && !el.files.length){ ok=false; showError(el.name,true); }
+          else if(el.files.length && !validateResume(el.files[0])){ ok=false; }
+          else showError(el.name,false);
+          return;
+        }
+        if(!el.checkValidity()){
+          ok=false; showError(el.id||el.name,true);
+        } else {
+          showError(el.id||el.name,false);
+        }
+      });
+      // Extra rules
+      if(qs('#phone').value && !/^\d{10}$/.test(qs('#phone').value)){ ok=false; showError('phone',true); }
+      // age check 16+
+      if(qs('#dob').value){
+        const d = new Date(qs('#dob').value); const min = new Date(); min.setFullYear(min.getFullYear()-16);
+        if(d>min){ ok=false; showError('dob',true);} else showError('dob',false);
+      }
+      return ok;
+    }
+
+    nextBtn.addEventListener('click', ()=>{ if(validateStep(step)){ step=Math.min(step+1, stepsEls.length-1); updateUI(); }});
+    prevBtn.addEventListener('click', ()=>{ step=Math.max(step-1, 0); updateUI(); });
+
+    // Enter to next if valid
+    form.addEventListener('keydown', (e)=>{ if(e.key==='Enter' && !['textarea'].includes(document.activeElement.tagName.toLowerCase())){ e.preventDefault(); if(validateStep(step)) nextBtn.click(); }});
+
+    // Preview modal
+    const modal = qs('#modal');
+    const pv = qs('#pv');
+    qs('#closePreview').addEventListener('click', ()=> modal.style.display='none');
+    previewBtn.addEventListener('click', ()=>{
+      // Validate all steps quickly before preview
+      let allOk = true; for(let i=0;i<stepsEls.length;i++){ if(!validateStep(i)) { allOk=false; step=i; updateUI(); break; } }
+      if(!allOk) return;
+      pv.innerHTML='';
+      const fd = new FormData(form);
+      const entries = Array.from(fd.entries());
+      const exclude = new Set(['resume']);
+      entries.forEach(([k,v])=>{
+        if(exclude.has(k)) return;
+        const key = k.replace(/([A-Z])/g,' $1').replace(/^./,c=>c.toUpperCase());
+        const rowKey = document.createElement('div'); rowKey.textContent = key;
+        const rowVal = document.createElement('div'); rowVal.textContent = v;
+        pv.append(rowKey,rowVal);
+      });
+      const rowKey = document.createElement('div'); rowKey.textContent = 'Resume';
+      const rowVal = document.createElement('div'); rowVal.textContent = resume.files[0] ? resume.files[0].name : 'Not attached';
+      pv.append(rowKey,rowVal);
+      modal.style.display='flex';
+    });
+
+    // Submit (simulate API)
+    function toJSON(fd){
+      const obj = {}; fd.forEach((v,k)=>{ if(v instanceof File) return; obj[k]=v; }); return obj;
+    }
+
+    const toast = qs('#toast');
+    function showToast(msg){ toast.textContent=msg; toast.style.display='block'; setTimeout(()=> toast.style.display='none', 3500); }
+
+    qs('#confirmSubmit').addEventListener('click', submitApp);
+    submitBtn.addEventListener('click', submitApp);
+
+    function submitApp(){
+      // Validate all steps
+      for(let i=0;i<stepsEls.length;i++){ if(!validateStep(i)) { step=i; updateUI(); return; } }
+      // Prepare payload
+      const fd = new FormData(form);
+      const payload = toJSON(fd);
+      // Attach simple metadata
+      payload.submittedAt = new Date().toISOString();
+      payload.userAgent = navigator.userAgent;
+
+      // NOTE: Replace "/api/applications/" with your actual Django endpoint.
+      // The below uses fetch() with multipart for including the resume file.
+      const mp = new FormData();
+      Object.entries(payload).forEach(([k,v])=> mp.append(k,v));
+      if(resume.files[0]) mp.append('resume', resume.files[0]);
+
+      // Demo: just log and show success (replace with real fetch)
+      console.log('Submitting to /api/applications/', payload);
+      modal.style.display='none';
+      showToast('Submitted! We\'ll get back to you soon.');
+      form.reset(); applyPositionRules(); step=0; updateUI(); fileInfo.textContent='';
+
+      /* Real submission example:
+      fetch('/api/applications/', { method:'POST', body: mp })
+        .then(r=>{ if(!r.ok) throw new Error('Network'); return r.json(); })
+        .then(()=>{ modal.style.display='none'; showToast('Submitted successfully!'); form.reset(); step=0; updateUI(); fileInfo.textContent=''; })
+        .catch(()=> showToast('Submission failed. Please try again.'));
+      */
+    }
+
+    // Initialize
+    applyPositionRules();
+    updateUI();
+  </script>
+</body>
+</html>
